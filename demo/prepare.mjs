@@ -10,3 +10,4 @@ for (const f of ['components/forms/UserFormDialog.tsx','routes/admin/users/index
 // The demo is a standalone SPA. No server entry, service client or auth middleware is reachable.
 for (const f of ['start.ts','server.ts','integrations/supabase/client.server.ts','integrations/supabase/auth-middleware.ts','integrations/supabase/auth-attacher.ts']) rmSync(`demo-src/${f}`,{force:true});
 writeFileSync('demo-src/demo-main.tsx',`import React from 'react'; import { createRoot } from 'react-dom/client'; import { RouterProvider } from '@tanstack/react-router'; import { getRouter } from './router'; import './styles.css'; createRoot(document.getElementById('root')!).render(<RouterProvider router={getRouter()}/>);`);
+writeFileSync('demo-src/routes/index.tsx', `import {createFileRoute,Navigate} from '@tanstack/react-router'; export const Route=createFileRoute('/')({component:()=> <Navigate to="/login"/>});`);
